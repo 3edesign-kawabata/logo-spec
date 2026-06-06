@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Design Specification</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Variables ───────────────────────────────────────── */
+    :root {
+      --bg:      #ffffff;
+      --surf:    #f7f7f7;
+      --surf2:   #f0f0f0;
+      --border:  #e0e0e0;
+      --accent:  #c8a96e;
+      --text:    #1a1a1a;
+      --muted:   #888888;
+      --r:       3px;
+    }
+
+    /* ── Reset ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── Page ────────────────────────────────────────────── */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 100px;
+    }
+
+    /* ── Topbar ──────────────────────────────────────────── */
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      padding: 7px 20px;
+      border-radius: var(--r);
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn:hover { background: var(--accent); color: #fff; }
+    .btn-ghost { border-color: var(--muted); color: var(--muted); }
+    .btn-ghost:hover { background: var(--muted); color: #fff; }
+
+    /* ── Inputs ──────────────────────────────────────────── */
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      background: var(--surf2);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      padding: 5px 9px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    input:focus, select:focus { border-color: var(--accent); }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      padding-right: 26px;
+      cursor: pointer;
+    }
+
+    /* ── Doc Header ──────────────────────────────────────── */
+    .doc-header {
+      margin-bottom: 52px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 28px;
+    }
+
+    .doc-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .header-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 48px;
+    }
+
+    .hf { display: flex; flex-direction: column; gap: 4px; }
+
+    .hf-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hf-static {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 5px 0;
+    }
+
+    /* ── Section ─────────────────────────────────────────── */
+    .section { margin-bottom: 56px; }
+
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 22px;
+    }
+
+    .sec-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+
+    .sec-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .sec-ctrl {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .sec-ctrl select {
+      width: auto;
+      padding: 3px 22px 3px 8px;
+      font-size: 11px;
+    }
+
+    /* ── 01 Logo ─────────────────────────────────────────── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .logo-wrap { display: flex; flex-direction: column; gap: 6px; }
+
+    .logo-area {
+      position: relative;
+      border-radius: var(--r);
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 1087 / 614;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow 0.15s;
+    }
+    .logo-area:hover { box-shadow: 0 0 0 2px var(--accent); }
+    .logo-area.drag-over { box-shadow: 0 0 0 2px var(--accent); }
+
+    .logo-white { background: #ffffff; border: 1px solid #dddddd; }
+    .logo-black { background: #1a1a1a; border: 1px solid #1a1a1a; }
+
+    .logo-area img {
+      max-width: 76%;
+      max-height: 76%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .logo-ph {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      pointer-events: none;
+    }
+
+    .logo-white .logo-ph { color: #c0c0c0; }
+    .logo-black .logo-ph { color: #444444; }
+
+    .logo-ph-icon { font-size: 22px; font-weight: 300; }
+
+    .logo-ph-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      text-align: center;
+      line-height: 2;
+      letter-spacing: 0.04em;
+    }
+
+    .logo-bg-tag {
+      position: absolute;
+      bottom: 7px;
+      left: 9px;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      pointer-events: none;
+    }
+    .logo-white .logo-bg-tag { color: #c8c8c8; }
+    .logo-black .logo-bg-tag { color: #444444; }
+
+    .logo-drop-hint {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      opacity: 0;
+      transition: opacity 0.15s;
+      pointer-events: none;
+    }
+    .logo-white .logo-drop-hint { background: rgba(255,255,255,0.9); color: #888; }
+    .logo-black .logo-drop-hint { background: rgba(0,0,0,0.85); color: #666; }
+    .logo-area.drag-over .logo-drop-hint { opacity: 1; }
+
+    .logo-size-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── 02 Color ─────────────────────────────────────────── */
+    table { width: 100%; border-collapse: collapse; }
+
+    thead th {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 400;
+    }
+
+    tbody td {
+      padding: 7px 8px;
+      vertical-align: middle;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .swatch {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--r);
+      border: 1px solid rgba(0,0,0,0.1);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform 0.1s;
+    }
+    .swatch:hover { transform: scale(1.06); }
+
+    .cmyk { display: flex; gap: 4px; }
+
+    .cmyk-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .cmyk-col span {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .cmyk-col input {
+      width: 46px;
+      text-align: center;
+      padding: 4px;
+      font-size: 12px;
+    }
+
+    /* ── 03 Typography ───────────────────────────────────── */
+    .font-cards { display: grid; gap: 16px; }
+
+    .font-card {
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .font-role-sel {
+      background: transparent !important;
+      border: none !important;
+      border-bottom: 1px solid var(--border) !important;
+      border-radius: 0 !important;
+      color: var(--accent) !important;
+      font-family: 'DM Mono', monospace !important;
+      font-size: 10px !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase;
+      padding: 0 18px 3px 0 !important;
+      width: auto !important;
+    }
+    .font-role-sel:focus { border-bottom-color: var(--accent) !important; }
+
+    .font-preview {
+      font-size: 34px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1;
+      min-height: 42px;
+      letter-spacing: -0.01em;
+    }
+
+    .fset { display: flex; flex-direction: column; gap: 3px; }
+
+    .fset-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── 04 Clear Space ──────────────────────────────────── */
+    .cs-layout {
+      display: flex;
+      align-items: stretch;
+      gap: 24px;
+    }
+
+    .cs-image-col {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drop-box {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      background: var(--surf);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.15s;
+    }
+    .drop-box:hover { box-shadow: 0 0 0 1px var(--accent); }
+    .drop-box.drag-over { box-shadow: 0 0 0 2px var(--accent); }
+
+    .drop-box-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .drop-box-inner img {
+      max-width: 88%;
+      max-height: 88%;
+      object-fit: contain;
+    }
+
+    .drop-ph {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+    }
+
+    .drop-ph-icon { font-size: 18px; color: #bbb; font-weight: 300; }
+
+    .drop-ph-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: #bbb;
+      text-align: center;
+      line-height: 1.9;
+    }
+
+    /* サイズ注記はドロップボックス内の絶対配置 — flex フローに影響しない */
+    .drop-note {
+      position: absolute;
+      bottom: 7px;
+      left: 0;
+      right: 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: #ccc;
+      text-align: center;
+      letter-spacing: 0.04em;
+      pointer-events: none;
+    }
+
+    .size-rows { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 9px; }
+
+    .size-row { display: flex; align-items: center; gap: 10px; }
+
+    .size-row label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      width: 120px;
+      flex-shrink: 0;
+    }
+
+    /* ── 05 NG ────────────────────────────────────────────── */
+    .ng-grid { display: grid; gap: 14px; }
+
+    .ng-card {
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+
+    .ng-drop {
+      position: relative;
+      cursor: pointer;
+      transition: box-shadow 0.15s;
+    }
+    .ng-drop:hover { box-shadow: inset 0 0 0 2px var(--accent); }
+    .ng-drop.drag-over { box-shadow: inset 0 0 0 2px var(--accent); }
+
+    .ng-drop-inner {
+      width: 100%;
+      aspect-ratio: 472 / 213;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      background: var(--surf2);
+    }
+
+    .ng-drop-inner img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .ng-body {
+      padding: 10px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ng-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    .doc-footer {
+      margin-top: 80px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .footer-detail {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
+
+    /* ── Utility ─────────────────────────────────────────── */
+    .print-only { display: none; }
+
+    /* ── Print ───────────────────────────────────────────── */
+    @media print {
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      @page { size: A4 portrait; margin: 12mm; }
+
+      body { background: #fff; font-size: 9pt; }
+
+      .no-print   { display: none !important; }
+      .print-only { display: block !important; }
+
+      .page { max-width: 100%; padding: 0; margin: 0; }
+
+      /* Inputs: ボーダーを消してテキストのみ表示 */
+      input[type="text"],
+      input[type="number"] {
+        background: transparent !important;
+        border: none !important;
+        border-bottom: 1px solid #e0e0e0 !important;
+        border-radius: 0 !important;
+        padding: 0 0 1px !important;
+      }
+
+      select {
+        background: transparent !important;
+        border: none !important;
+        border-bottom: 1px solid #e0e0e0 !important;
+        border-radius: 0 !important;
+        padding: 0 0 1px !important;
+        appearance: none !important;
+        background-image: none !important;
+      }
+
+      /* Layout */
+      .section { margin-bottom: 22pt; page-break-inside: avoid; }
+      .sec-ctrl { display: none !important; }
+      .doc-header { margin-bottom: 24pt; }
+
+      /* 黒背景エリアは印刷でも維持 */
+      .logo-black { background: #1a1a1a !important; border-color: #1a1a1a !important; }
+
+      /* NG */
+      .ng-card { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Topbar -->
+  <div class="topbar no-print">
+    <button class="btn btn-ghost" onclick="clearAll()">クリア</button>
+    <button class="btn" onclick="window.print()">印刷する →</button>
+  </div>
+
+  <!-- Doc Header -->
+  <div class="doc-header">
+    <div class="doc-label">Logo Design Specification</div>
+    <div class="header-grid">
+      <div class="hf">
+        <span class="hf-label">Brand</span>
+        <input type="text" id="h_brand" placeholder="Brand Name" oninput="save()">
+      </div>
+      <div class="hf">
+        <span class="hf-label">Client</span>
+        <input type="text" id="h_client" placeholder="Client Name" oninput="save()">
+      </div>
+      <div class="hf">
+        <span class="hf-label">Date</span>
+        <input type="text" id="h_date" placeholder="YYYY.MM.DD" oninput="save()">
+      </div>
+      <div class="hf">
+        <span class="hf-label">Version</span>
+        <input type="text" id="h_ver" placeholder="v1.0" oninput="save()">
+      </div>
+      <div class="hf">
+        <span class="hf-label">Designer</span>
+        <span class="hf-static">3edesign / Kazuki Kawabata</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 Logo -->
+  <div class="section">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <span class="sec-title">Logo</span>
+    </div>
+    <div class="logo-grid">
+      <div class="logo-wrap">
+        <div class="logo-area logo-white" id="logoWhite"
+             ondragover="onDragOver(event, this)"
+             ondragleave="onDragLeave(this)"
+             ondrop="onLogoDrop(event)"
+             onclick="document.getElementById('logoFile').click()">
+          <div id="logoWhiteInner">
+            <div class="logo-ph">
+              <span class="logo-ph-icon">+</span>
+              <span class="logo-ph-text">Drop PNG here<br>1087 × 614 px<br>92 × 52 mm</span>
+            </div>
+          </div>
+          <span class="logo-bg-tag">White BG</span>
+          <div class="logo-drop-hint">Drop image</div>
+        </div>
+        <span class="logo-size-note">推奨 1087 × 614 px / 92 × 52 mm</span>
+      </div>
+      <div class="logo-wrap">
+        <div class="logo-area logo-black" id="logoBlack">
+          <div id="logoBlackInner">
+            <div class="logo-ph">
+              <span class="logo-ph-icon">+</span>
+              <span class="logo-ph-text">White BG に画像を<br>ドロップすると<br>自動で反映されます</span>
+            </div>
+          </div>
+          <span class="logo-bg-tag">Black BG</span>
+        </div>
+        <span class="logo-size-note">推奨 1087 × 614 px / 92 × 52 mm</span>
+      </div>
+    </div>
+    <input type="file" id="logoFile" accept="image/*" style="display:none" onchange="onLogoFile(event)">
+  </div>
+
+  <!-- 02 Color -->
+  <div class="section">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <span class="sec-title">Color</span>
+      <div class="sec-ctrl no-print">
+        <span>Colors</span>
+        <select id="colorCount" onchange="renderColors()">
+          <option>1</option>
+          <option>2</option>
+          <option selected>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+        </select>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:52px">Color</th>
+          <th style="width:114px">Role</th>
+          <th>Name</th>
+          <th style="width:94px">HEX</th>
+          <th style="width:214px">CMYK</th>
+          <th style="width:90px">Pantone</th>
+        </tr>
+      </thead>
+      <tbody id="colorTbody"></tbody>
+    </table>
+  </div>
+
+  <!-- 03 Typography -->
+  <div class="section">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <span class="sec-title">Typography</span>
+      <div class="sec-ctrl no-print">
+        <span>Fonts</span>
+        <select id="fontCount" onchange="renderFonts()">
+          <option>1</option>
+          <option>2</option>
+          <option selected>3</option>
+        </select>
+      </div>
+    </div>
+    <div class="font-cards" id="fontCards"></div>
+  </div>
+
+  <!-- 04 Clear Space & Size -->
+  <div class="section">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <span class="sec-title">Clear Space &amp; Size</span>
+    </div>
+    <div class="cs-layout">
+      <div class="cs-image-col">
+        <div class="drop-box" id="csBox"
+             ondragover="onDragOver(event, this)"
+             ondragleave="onDragLeave(this)"
+             ondrop="onCSdrop(event)"
+             onclick="document.getElementById('csFile').click()">
+          <div class="drop-box-inner" id="csInner">
+            <div class="drop-ph">
+              <span class="drop-ph-icon">+</span>
+              <span class="drop-ph-text">Drop image here<br>472 × 213 px / 40 × 18 mm</span>
+            </div>
+          </div>
+          <div class="drop-note no-print">472 × 213 px / 40 × 18 mm</div>
+        </div>
+        <input type="file" id="csFile" accept="image/*" style="display:none" onchange="onCSfile(event)">
+      </div>
+      <div class="size-rows">
+        <div class="size-row">
+          <label>最小余白 (X値)</label>
+          <input type="text" id="s_minspace" placeholder="例: ロゴ高さの 1/4" oninput="save()">
+        </div>
+        <div class="size-row">
+          <label>基準単位</label>
+          <input type="text" id="s_unit" placeholder="例: 5 mm / 20 px" oninput="save()">
+        </div>
+        <div class="size-row">
+          <label>印刷最小サイズ</label>
+          <input type="text" id="s_printmin" placeholder="例: 30 mm" oninput="save()">
+        </div>
+        <div class="size-row">
+          <label>Web最小サイズ</label>
+          <input type="text" id="s_webmin" placeholder="例: 120 px" oninput="save()">
+        </div>
+        <div class="size-row">
+          <label>推奨サイズ</label>
+          <input type="text" id="s_recommended" placeholder="例: 200 px 以上" oninput="save()">
+        </div>
+        <div class="size-row">
+          <label>ファビコン</label>
+          <input type="text" id="s_favicon" placeholder="例: 32 × 32 px" oninput="save()">
+        </div>
+        <div class="size-row">
+          <label>刺繍・箔押し最小</label>
+          <input type="text" id="s_emboss" placeholder="例: 30 mm" oninput="save()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 Usage NG -->
+  <div class="section">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <span class="sec-title">Usage NG</span>
+      <div class="sec-ctrl no-print">
+        <span>Items</span>
+        <select id="ngCount" onchange="renderNG()">
+          <option>2</option>
+          <option selected>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+        </select>
+      </div>
+    </div>
+    <div class="ng-grid" id="ngGrid"></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="doc-footer">
+    <span class="footer-brand">3edesign</span>
+    <span class="footer-detail">Kazuki Kawabata &nbsp;/&nbsp; Ehime, Japan</span>
+  </div>
+
+</div><!-- /.page -->
+
+<script>
+/* ────────────────────────────────────────────────────────
+   Storage
+──────────────────────────────────────────────────────── */
+const SK = 'logo-spec-v1';
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(SK)) || {}; } catch { return {}; }
+}
+
+function persist(d) {
+  try { localStorage.setItem(SK, JSON.stringify(d)); }
+  catch(e) { alert('ストレージ容量が不足しています。画像のサイズを小さくしてください。'); }
+}
+
+function saveImg(key, src) {
+  const d = load();
+  d[key] = src;
+  persist(d);
+}
+
+function save() {
+  const d = load(); // preserve image keys
+
+  ['h_brand','h_client','h_date','h_ver'].forEach(id => d[id] = gv(id));
+
+  const cc = +gv('colorCount');
+  d.colorCount = cc;
+  d.colors = [];
+  for (let i = 0; i < cc; i++) {
+    d.colors[i] = {
+      hex:    gv(`c_hex_${i}`),
+      role:   gv(`c_role_${i}`),
+      name:   gv(`c_name_${i}`),
+      c:      gv(`c_c_${i}`),
+      m:      gv(`c_m_${i}`),
+      y:      gv(`c_y_${i}`),
+      k:      gv(`c_k_${i}`),
+      pantone:gv(`c_pt_${i}`)
+    };
+  }
+
+  const fc = +gv('fontCount');
+  d.fontCount = fc;
+  d.fonts = [];
+  for (let i = 0; i < fc; i++) {
+    d.fonts[i] = {
+      role:   gv(`f_role_${i}`),
+      name:   gv(`f_name_${i}`),
+      weight: gv(`f_weight_${i}`),
+      usage:  gv(`f_usage_${i}`)
+    };
+  }
+
+  ['s_minspace','s_unit','s_printmin','s_webmin','s_recommended','s_favicon','s_emboss']
+    .forEach(id => d[id] = gv(id));
+
+  const nc = +gv('ngCount');
+  d.ngCount = nc;
+  d.ngs = [];
+  for (let i = 0; i < nc; i++) {
+    d.ngs[i] = { desc: gv(`ng_desc_${i}`) };
+  }
+
+  persist(d);
+}
+
+function gv(id) {
+  const el = document.getElementById(id);
+  return el ? el.value : '';
+}
+
+function sv(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.value = val || '';
+}
+
+/* ────────────────────────────────────────────────────────
+   Image helpers
+──────────────────────────────────────────────────────── */
+function readImg(file, cb) {
+  const r = new FileReader();
+  r.onload = e => cb(e.target.result);
+  r.readAsDataURL(file);
+}
+
+/* ────────────────────────────────────────────────────────
+   Logo
+──────────────────────────────────────────────────────── */
+function onLogoDrop(e) {
+  e.preventDefault();
+  document.getElementById('logoWhite').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) readImg(file, setLogoImg);
+}
+
+function onLogoFile(e) {
+  const file = e.target.files[0];
+  if (file) readImg(file, setLogoImg);
+  e.target.value = '';
+}
+
+function setLogoImg(src) {
+  const img = `<img src="${src}" alt="Logo">`;
+  document.getElementById('logoWhiteInner').innerHTML = img;
+  document.getElementById('logoBlackInner').innerHTML = img;
+  saveImg('logoImg', src);
+}
+
+/* ────────────────────────────────────────────────────────
+   Clear Space image
+──────────────────────────────────────────────────────── */
+function onCSdrop(e) {
+  e.preventDefault();
+  document.getElementById('csBox').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) readImg(file, setCSimg);
+}
+
+function onCSfile(e) {
+  const file = e.target.files[0];
+  if (file) readImg(file, setCSimg);
+  e.target.value = '';
+}
+
+function setCSimg(src) {
+  document.getElementById('csInner').innerHTML = `<img src="${src}" alt="">`;
+  saveImg('csImg', src);
+}
+
+/* ────────────────────────────────────────────────────────
+   NG images
+──────────────────────────────────────────────────────── */
+function onNGdrop(e, i) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) readImg(file, src => setNGimg(i, src));
+}
+
+function onNGfile(e, i) {
+  const file = e.target.files[0];
+  if (file) readImg(file, src => setNGimg(i, src));
+  e.target.value = '';
+}
+
+function setNGimg(i, src) {
+  const el = document.getElementById(`ng_inner_${i}`);
+  if (el) el.innerHTML = `<img src="${src}" alt="">`;
+  const d = load();
+  if (!d.ngImgs) d.ngImgs = {};
+  d.ngImgs[i] = src;
+  persist(d);
+}
+
+/* ────────────────────────────────────────────────────────
+   Drag utils
+──────────────────────────────────────────────────────── */
+function onDragOver(e, el) { e.preventDefault(); el.classList.add('drag-over'); }
+function onDragLeave(el)   { el.classList.remove('drag-over'); }
+
+/* ────────────────────────────────────────────────────────
+   02 Color
+──────────────────────────────────────────────────────── */
+const COLOR_ROLES = ['Primary','Accent','Sub','Background','Other'];
+
+function renderColors() {
+  const d = load();
+  const count = +document.getElementById('colorCount').value;
+  const saved = d.colors || [];
+  const tbody = document.getElementById('colorTbody');
+  tbody.innerHTML = '';
+
+  for (let i = 0; i < count; i++) {
+    const c = saved[i] || {};
+    const hex = c.hex || '#c8a96e';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>
+        <div class="swatch" id="swatch_${i}" style="background:${hex}"
+             title="クリックして色を選択"
+             onclick="document.getElementById('picker_${i}').click()"></div>
+        <input type="color" id="picker_${i}" value="${hex}"
+               oninput="onPickerChange(${i})"
+               style="position:absolute;opacity:0;width:0;height:0;pointer-events:none">
+      </td>
+      <td>
+        <select id="c_role_${i}" onchange="save()">
+          ${COLOR_ROLES.map(r => `<option${c.role===r?' selected':''}>${r}</option>`).join('')}
+        </select>
+      </td>
+      <td>
+        <input type="text" id="c_name_${i}" value="${esc(c.name)}"
+               placeholder="Color name" oninput="save()">
+      </td>
+      <td>
+        <input type="text" id="c_hex_${i}" value="${hex}"
+               placeholder="#000000"
+               style="font-family:'DM Mono',monospace;font-size:12px;text-transform:uppercase"
+               oninput="onHexInput(${i})">
+      </td>
+      <td>
+        <div class="cmyk">
+          ${['C','M','Y','K'].map(ch => `
+            <div class="cmyk-col">
+              <span>${ch}</span>
+              <input type="text" id="c_${ch.toLowerCase()}_${i}"
+                     value="${esc(c[ch.toLowerCase()])}"
+                     placeholder="0" oninput="save()">
+            </div>
+          `).join('')}
+        </div>
+      </td>
+      <td>
+        <input type="text" id="c_pt_${i}" value="${esc(c.pantone)}"
+               placeholder="000 C" oninput="save()">
+      </td>
+    `;
+    tbody.appendChild(tr);
+  }
+  save();
+}
+
+function onPickerChange(i) {
+  const hex = document.getElementById(`picker_${i}`).value;
+  document.getElementById(`swatch_${i}`).style.background = hex;
+  document.getElementById(`c_hex_${i}`).value = hex.toUpperCase();
+  save();
+}
+
+function onHexInput(i) {
+  const val = document.getElementById(`c_hex_${i}`).value;
+  if (/^#[0-9a-fA-F]{6}$/.test(val)) {
+    document.getElementById(`swatch_${i}`).style.background = val;
+    try { document.getElementById(`picker_${i}`).value = val; } catch {}
+  }
+  save();
+}
+
+/* ────────────────────────────────────────────────────────
+   03 Typography
+──────────────────────────────────────────────────────── */
+const FONT_ROLES = ['Primary','Secondary','Tertiary'];
+
+function renderFonts() {
+  const d = load();
+  const count = +document.getElementById('fontCount').value;
+  const saved = d.fonts || [];
+  const container = document.getElementById('fontCards');
+  container.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
+  container.innerHTML = '';
+
+  for (let i = 0; i < count; i++) {
+    const f = saved[i] || {};
+    const card = document.createElement('div');
+    card.className = 'font-card';
+    card.innerHTML = `
+      <select class="font-role-sel" id="f_role_${i}" onchange="save()">
+        ${FONT_ROLES.map(r => `<option${f.role===r?' selected':''}>${r}</option>`).join('')}
+      </select>
+      <div class="font-preview" id="f_preview_${i}">${esc(f.name) || 'Aa'}</div>
+      <div class="fset">
+        <span class="fset-label">Font Name</span>
+        <input type="text" id="f_name_${i}" value="${esc(f.name)}"
+               placeholder="e.g. DM Sans" oninput="onFontName(${i})">
+      </div>
+      <div class="fset">
+        <span class="fset-label">Weight</span>
+        <input type="text" id="f_weight_${i}" value="${esc(f.weight)}"
+               placeholder="Regular 400 / Bold 700" oninput="save()">
+      </div>
+      <div class="fset">
+        <span class="fset-label">Usage</span>
+        <input type="text" id="f_usage_${i}" value="${esc(f.usage)}"
+               placeholder="Heading, Body copy..." oninput="save()">
+      </div>
+    `;
+    container.appendChild(card);
+  }
+  save();
+}
+
+function onFontName(i) {
+  const name = gv(`f_name_${i}`);
+  const el = document.getElementById(`f_preview_${i}`);
+  if (el) el.textContent = name || 'Aa';
+  save();
+}
+
+/* ────────────────────────────────────────────────────────
+   05 NG
+──────────────────────────────────────────────────────── */
+function renderNG() {
+  const d = load();
+  const count = +document.getElementById('ngCount').value;
+  const saved = d.ngs || [];
+  const ngImgs = d.ngImgs || {};
+  const grid = document.getElementById('ngGrid');
+  const cols = count <= 2 ? 2 : 3;
+  grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+  grid.innerHTML = '';
+
+  for (let i = 0; i < count; i++) {
+    const ng = saved[i] || {};
+    const src = ngImgs[i] || null;
+    const card = document.createElement('div');
+    card.className = 'ng-card';
+    card.innerHTML = `
+      <div class="ng-drop"
+           ondragover="onDragOver(event, this)"
+           ondragleave="onDragLeave(this)"
+           ondrop="onNGdrop(event, ${i})"
+           onclick="document.getElementById('ngfile_${i}').click()">
+        <div class="ng-drop-inner" id="ng_inner_${i}">
+          ${src
+            ? `<img src="${src}" alt="">`
+            : `<span style="font-size:16px;color:#bbb;font-weight:300">+</span>
+               <span style="font-family:'DM Mono',monospace;font-size:9px;color:#bbb;text-align:center">
+                 472 × 213 px<br>40 × 18 mm
+               </span>`
+          }
+        </div>
+      </div>
+      <input type="file" id="ngfile_${i}" accept="image/*" style="display:none"
+             onchange="onNGfile(event, ${i})">
+      <div class="ng-body">
+        <div class="ng-num">NG — ${String(i + 1).padStart(2, '0')}</div>
+        <input type="text" id="ng_desc_${i}" value="${esc(ng.desc)}"
+               placeholder="NG理由・説明を入力" oninput="save()">
+      </div>
+    `;
+    grid.appendChild(card);
+  }
+  save();
+}
+
+/* ────────────────────────────────────────────────────────
+   Restore from localStorage
+──────────────────────────────────────────────────────── */
+function restore() {
+  const d = load();
+
+  ['h_brand','h_client','h_date','h_ver'].forEach(id => sv(id, d[id]));
+
+  if (d.colorCount) document.getElementById('colorCount').value = d.colorCount;
+  renderColors();
+
+  if (d.fontCount) document.getElementById('fontCount').value = d.fontCount;
+  renderFonts();
+
+  ['s_minspace','s_unit','s_printmin','s_webmin','s_recommended','s_favicon','s_emboss']
+    .forEach(id => sv(id, d[id]));
+
+  if (d.ngCount) document.getElementById('ngCount').value = d.ngCount;
+  renderNG();
+
+  if (d.logoImg) setLogoImg(d.logoImg);
+  if (d.csImg)   setCSimg(d.csImg);
+}
+
+/* ────────────────────────────────────────────────────────
+   Clear all
+──────────────────────────────────────────────────────── */
+function clearAll() {
+  if (!confirm('すべての入力内容と画像をクリアしますか？')) return;
+  localStorage.removeItem(SK);
+  location.reload();
+}
+
+/* ────────────────────────────────────────────────────────
+   Utility
+──────────────────────────────────────────────────────── */
+function esc(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/"/g,'&quot;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;');
+}
+
+/* ────────────────────────────────────────────────────────
+   Init
+──────────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', restore);
+</script>
+</body>
+</html>
